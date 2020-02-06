@@ -54,6 +54,8 @@ jobs:
 
 **Automatic Bumping:** If no `#major`, `#minor` or `#patch` tag is contained in the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `minor` by default).
 
+**NO Bumping:** If the `#nobump` tag is contained in the commit message, the version will not be bumped.
+
 > ***Note:*** This action **will not** bump the tag if the `HEAD` commit has already been tagged.
 
 ### Workflow

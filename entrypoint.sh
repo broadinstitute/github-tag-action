@@ -80,7 +80,7 @@ echo $new
 echo ::set-output name=new_tag::$new
 echo ::set-output name=tag::$new
 
-if $pre_release
+if $pre_release || [[ "$log" =~ .*#nobump.* ]]
 then
     echo "This branch is not a release branch. Skipping the tag creation."
     exit 0
