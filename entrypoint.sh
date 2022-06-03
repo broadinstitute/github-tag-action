@@ -157,6 +157,12 @@ then
     exit 0
 fi 
 
+if $pre_release || [[ "$log" =~ .*#nobump.* ]]
+then
+    echo "This branch is not a release branch or #nobump tag is present. Skipping the tag creation."
+    exit 0
+fi 
+
 echo ::set-output name=tag::$new
 
 # create local git tag

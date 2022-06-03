@@ -2,9 +2,9 @@
 
 A Github Action to automatically bump and tag master, on merge, with the latest SemVer formatted version.
 
-[![Build Status](https://github.com/anothrNick/github-tag-action/workflows/Bump%20version/badge.svg)](https://github.com/anothrNick/github-tag-action/workflows/Bump%20version/badge.svg)
-[![Stable Version](https://img.shields.io/github/v/tag/anothrNick/github-tag-action)](https://img.shields.io/github/v/tag/anothrNick/github-tag-action)
-[![Latest Release](https://img.shields.io/github/v/release/anothrNick/github-tag-action?color=%233D9970)](https://img.shields.io/github/v/release/anothrNick/github-tag-action?color=%233D9970)
+[![Build Status](https://github.com/broadinstitute/github-tag-action/workflows/Bump%20version/badge.svg)](https://github.com/broadinstitute/github-tag-action/workflows/Bump%20version/badge.svg)
+[![Stable Version](https://img.shields.io/github/v/tag/broadinstitute/github-tag-action)](https://img.shields.io/github/v/tag/broadinstitute/github-tag-action)
+[![Latest Release](https://img.shields.io/github/v/release/broadinstitute/github-tag-action?color=%233D9970)](https://img.shields.io/github/v/release/broadinstitute/github-tag-action?color=%233D9970)
 
 > Medium Post: [Creating A Github Action to Tag Commits](https://itnext.io/creating-a-github-action-to-tag-commits-2722f1560dec)
 
@@ -26,7 +26,7 @@ jobs:
       with:
         fetch-depth: '0'
     - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@1.36.0
+      uses: broadinstitute/github-tag-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
@@ -65,7 +65,9 @@ If `#none` is contained in the commit message, it will skip bumping regardless `
 
 **Automatic Bumping:** If no `#major`, `#minor` or `#patch` tag is contained in the commit messages, it will bump whichever `DEFAULT_BUMP` is set to (which is `minor` by default). Disable this by setting `DEFAULT_BUMP` to `none`.
 
-> **_Note:_** This action **will not** bump the tag if the `HEAD` commit has already been tagged.
+**NO Bumping:** If the `#nobump` tag is contained in the commit message, the version will not be bumped.
+
+> ***Note:*** This action **will not** bump the tag if the `HEAD` commit has already been tagged.
 
 ### Workflow
 
